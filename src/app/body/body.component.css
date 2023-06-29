@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Poppins:wght@100&display=swap');
+
+.registro-cuerpo{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #F7EFE8;
+}
+
+.container-registro {
+    position: absolute;
+    left: 25%;
+    top: 15%;
+    transform: translate(-50%,-50%);
+}
+
+.container-img{
+    position: fixed;
+    height: 100%;
+}
+
+p {
+    width: 50px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size: 40px;
+    letter-spacing: -0.04em;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.inputs {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+}
+
+.inputs input {
+    position: absolute;
+    width: 330px;
+    height: 50px;
+    background-color: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom: 1px solid #000000;
+    font-weight: 300;
+}
+
+.buttons button{
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    top: 635px;
+    border-radius: 10px;
+    background-color: #A67133;
+    color: #FFFFFF;
+    border: solid #A67133;
+}

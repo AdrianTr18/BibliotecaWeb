@@ -1,0 +1,37 @@
+<!-- Login -->
+<div class="Login">
+    <div class="Logo-container">
+      <img src="/assets/BNP_Logo.png" alt={{nombreBiblioteca}}>
+      <span>{{nombreBiblioteca}}</span>
+    </div>
+    <form class="Login-form">
+      <span class="lin1">Iniciar Sesión</span>
+        <br>
+      <span class="lin2">Ingresa tus datos</span>
+      <div>
+        <label class="user">Usuario</label>
+        <input type="text" placeholder="ejemplo@hotmail.com">
+      </div>
+      <div>
+        <label class="password">Contraseña</label>
+        <input type="password" placeholder="contraseña">
+      </div>
+      <div class="form-check">
+        <input type="checkbox">
+        <label class="TyC">Acepto los términos y condiciones</label>
+        <label class="FPassword">Olvidé la contraseña</label>
+      </div>
+      <div>
+        <button type="button" value="submit" (click)="irAInicio()"> Ingresar</button>
+      </div>
+      <div>
+        <span class="pregunta">¿No tienes cuenta?</span>
+        <label class="registrate">Regístrate aquí</label>
+      </div>
+    </form>
+    <footer>
+      <p>&copy; 2023 PALMA. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+
