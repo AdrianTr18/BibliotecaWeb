@@ -9,4 +9,6 @@ export class RtesisComponent {
   nombreBiblioteca = "Biblioteca Nacional del Perú";
   urlImg = "/assets/Fondo_Registros.png";
   tipo = "TESIS";
+  nombre = "Ivette"
+  rol = "Recepcionista"
 }

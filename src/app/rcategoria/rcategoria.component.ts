@@ -9,4 +9,7 @@ export class RcategoriaComponent {
   nombreBiblioteca = "Biblioteca Nacional del Perú";
   urlImg = "/assets/Fondo_Registros.png";
   tipo = "CATEGORIA";
+  background = "#F7EFE8"
+  nombre = "Ivette"
+  rol = "Recepcionista"
 }

@@ -9,4 +9,6 @@ export class RmultaComponent {
   nombreBiblioteca = "Biblioteca Nacional del Perú";
   urlImg = "/assets/Fondo_Multa.jpg";
   tipo = "MULTA";
+  nombre = "Ivette"
+  rol = "Recepcionista"
 }

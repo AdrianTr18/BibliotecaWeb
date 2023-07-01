@@ -6,7 +6,10 @@ import { Component, Output } from '@angular/core';
   styleUrls: ['./rarticulos.component.css']
 })
 export class RarticulosComponent {
-  nombreBiblioteca = "Biblioteca Nacional del Perú";
-  urlImg = "/assets/Fondo_Registros.png";
-  tipo = "ARTICULOS";
+  nombreBiblioteca = "Biblioteca Nacional del Perú"
+  urlImg = "/assets/Fondo_Registros.png"
+  tipo = "ARTICULOS"
+  background = "#F7EFE8"
+  nombre = "Ivette"
+  rol = "Recepcionista"
 }

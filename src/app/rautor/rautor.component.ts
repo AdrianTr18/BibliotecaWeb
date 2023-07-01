@@ -9,4 +9,7 @@ export class RautorComponent {
   nombreBiblioteca = "Biblioteca Nacional del Perú";
   urlImg = "/assets/Fondo_Registros.png";
   tipo = "AUTOR";
+  background = "#F7EFE8"
+  nombre = "Ivette"
+  rol = "Recepcionista"
 }

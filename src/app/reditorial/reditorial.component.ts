@@ -9,4 +9,7 @@ export class ReditorialComponent {
   nombreBiblioteca = "Biblioteca Nacional del Perú";
   urlImg = "/assets/Fondo_Registros.png";
   tipo = "EDITORIAL";
+  background = "#F7EFE8"
+  nombre = "Ivette"
+  rol = "Recepcionista"
 }
