@@ -20,6 +20,7 @@ import { RprestamoComponent } from './rprestamo/rprestamo.component';
 import { RempleadosComponent } from './rempleados/rempleados.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
+import { NgChartsModule } from 'ng2-charts';
 
 const appRoutes: Routes=[
   { path: '', component: LoginComponent},
@@ -59,7 +60,8 @@ const appRoutes: Routes=[
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

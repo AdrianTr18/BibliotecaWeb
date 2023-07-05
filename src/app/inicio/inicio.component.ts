@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-inicio',
@@ -11,5 +11,6 @@ export class InicioComponent{
   imgUrl = "";
   backgroundColor = "#FFFFFF";
   nombre = "Ivette";
-  rol = "Recepcionista"
+  rol = "Amo y señor de todo";
+  tipo = "Inicio";
 }

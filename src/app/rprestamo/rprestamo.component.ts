@@ -9,6 +9,7 @@ export class RprestamoComponent {
   nombreBiblioteca = "Biblioteca Nacional del Perú";
   urlImg = "/assets/Fondo_Prestamo.jpg";
   tipo = "PRESTAMO";
+  background = "#F7EFE8";
   nombre = "Ivette"
   rol = "Recepcionista"
 }

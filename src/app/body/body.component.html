@@ -1,11 +1,182 @@
-<div class="registro-cuerpo" [style.background-color]="backgroundColor">
+<div *ngIf="tipo === 'Inicio'" class="registro-cuerpo" [style.background-color]="backgroundColor">
+    <div class="container-registro">
+      <p style= "width: 370px;">
+        <span class="Bienvenida"> ¡ Bienvenido(a) </span>
+        <span class="nombre" style="color:#A67133; height: 10px;"> {{nombre}} !</span>
+      </p>
+      <!-- <div class="inputs">
+        <input class="Titulo" type="text" placeholder="Titulo" style="top: 10px;">
+        <input class="Disponibilidad" type="text" placeholder="Disponibilidad" style="top: 70px;">
+        <input class="Disciplina" type="text" placeholder="Disciplina" style="top: 130px;">
+        <input class="ISBN" type="text" placeholder="ISBN" style="top: 190px;">
+        <input class="Fecha de publicación" type="text" placeholder="Fecha de publicación" style="top: 250px;">
+        <input class="N° Páginas" type="text" placeholder="N° Páginas" style="top: 10px; left: 75%;">
+        <input class="N° Estante" type="text" placeholder="N° Estante" style="top: 70px; left: 75%;">
+        <input class="Bibliografía" type="text" placeholder="Bibliografía" style="top: 130px; left: 75%;">
+        <input class="Género" type="text" placeholder="Género" style="top: 190px; left: 75%;">
+        <input class="Sinopsis" type="text" placeholder="Sinopsis" style="top: 250px; left: 75%;">
+        <input class="N° Edicion" type="text" placeholder="N° Edición" style="top: 310px; left: 75%;">
+        <input class="Ubicación" type="text" placeholder="Ubicación" style="top: 370px; left: 75%;">
+      </div>
+      <div class="buttons" style=" display: flex; justify-content: space-between;">
+        <button class="button-agregar">Agregar</button>
+        <button class="button-modificar" style="left: 185px">Modificar</button>
+        <button class="button-mostrar" style="left: 365px">Mostrar</button>
+        <button class="button-eliminar" style="left: 545px">Eliminar</button>
+      </div> -->
+    </div>
+  </div>
+
+  <div *ngIf="tipo === 'PRESTAMO'" class="registro-cuerpo" [style.background-color]="backgroundColor">
     <div class="container-img">
       <img alt={{nombreBiblioteca}} src={{urlImage}} width="360" height="90%">
     </div>
     <div class="container-registro">
       <p>
         <span class="registro"> Registrar</span>
-        <span class="libro" style="color:#A67133; height: 10px"> {{tipo}}</span>
+        <span class="tipo" style="color:#CF3636; height: 10px;"> {{tipo}}</span>
+      </p>
+      <div class="inputs">
+        <input class="Nombre" type="text" placeholder="Nombre" style="top: 10px;">
+        <input class="Apellidos" type="text" placeholder="Apellidos" style="top: 70px;">
+        <input class="Telefono" type="text" placeholder="Telefono" style="top: 130px;">
+        <input class="DNI" type="text" placeholder="DNI" style="top: 190px;">
+        <input class="N°_Prestamo" type="text" placeholder="N° de Prestamo" style="top: 10px; left: 75%;">
+        <input class="Titulo" type="text" placeholder="Titulo" style="top: 70px; left: 75%;">
+        <input class="Autor" type="text" placeholder="Autor(a)" style="top: 130px; left: 75%;">
+        <input class="Fecha_Prestamo" type="text" placeholder="Fecha de Prestamo" style="top: 190px; left: 75%;">
+        <input class="Fecha_Devolucion" type="text" placeholder="Fecha de Devolución" style="top: 250px; left: 75%;">
+        <div class="button-inputs">
+          <button type="button" class="button-buscar" style="background-color: #CF3636;">Buscar Usuario</button>
+        </div>
+      </div>
+      <div class="buttons" style=" display: flex; justify-content: space-between;">
+        <button type="button" class="button-agregar">Agregar</button>
+        <button type="button" class="button-modificar" style="left: 185px">Modificar</button>
+        <button type="button" class="button-mostrar" style="left: 365px">Mostrar</button>
+        <button type="button" class="button-eliminar" style="left: 545px">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tipo === 'ARTICULOS'" class="registro-cuerpo" [style.background-color]="backgroundColor">
+    <div class="container-img">
+      <img alt={{nombreBiblioteca}} src={{urlImage}} width="360" height="90%">
+    </div>
+    <div class="container-registro">
+      <p>
+        <span class="registro"> Registrar</span>
+        <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
+      </p>
+      <div class="inputs">
+        <input class="Titulo" type="text" placeholder="Titulo" style="top: 10px;">
+        <input class="Disponibilidad" type="text" placeholder="Disponibilidad" style="top: 70px;">
+        <input class="Disciplina" type="text" placeholder="Disciplina" style="top: 130px;">
+        <input class="ISBN" type="text" placeholder="ISBN" style="top: 190px;">
+        <input class="Fecha de publicación" type="text" placeholder="Fecha de publicación" style="top: 250px;">
+        <input class="N° Páginas" type="text" placeholder="N° Páginas" style="top: 10px; left: 75%;">
+        <input class="N° Estante" type="text" placeholder="N° Estante" style="top: 70px; left: 75%;">
+        <input class="Bibliografía" type="text" placeholder="Bibliografía" style="top: 130px; left: 75%;">
+        <input class="Volumen" type="text" placeholder="Volúmen" style="top: 190px; left: 75%;">
+        <input class="Numero" type="text" placeholder="Número" style="top: 250px; left: 75%;">
+        <input class="Palabras_clave" type="text" placeholder="Palabras clave" style="top: 310px; left: 75%;">
+      </div>
+      <div class="buttons" style=" display: flex; justify-content: space-between;">
+        <button class="button-agregar">Agregar</button>
+        <button class="button-modificar" style="left: 185px">Modificar</button>
+        <button class="button-mostrar" style="left: 365px">Mostrar</button>
+        <button class="button-eliminar" style="left: 545px">Eliminar</button>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="tipo === 'AUTOR'" class="registro-cuerpo" [style.background-color]="backgroundColor">
+    <div class="container-img">
+      <img alt={{nombreBiblioteca}} src={{urlImage}} width="360" height="90%">
+    </div>
+    <div class="container-registro">
+      <p>
+        <span class="registro"> Registrar</span>
+        <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
+      </p>
+      <div class="inputs">
+        <input class="Nombre" type="text" placeholder="Nombre" style="top: 10px;">
+        <input class="Apellidos" type="text" placeholder="Apellidos" style="top: 70px;">
+        <input class="Telefono" type="text" placeholder="Teléfono" style="top: 130px;">
+        <input class="DNI" type="text" placeholder="DNI" style="top: 190px;">
+        <input class="Nacionalidad" type="text" placeholder="Nacionalidad" style="top: 250px;">
+      </div>
+      <div class="buttons" style=" display: flex; justify-content: space-between;">
+        <button class="button-agregar">Agregar</button>
+        <button class="button-modificar" style="left: 185px">Modificar</button>
+        <button class="button-mostrar" style="left: 365px">Mostrar</button>
+        <button class="button-eliminar" style="left: 545px">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tipo === 'MULTA'" class="registro-cuerpo" [style.background-color]="backgroundColor">
+    <div class="container-img">
+      <img alt={{nombreBiblioteca}} src={{urlImage}} width="360" height="90%">
+    </div>
+    <div class="container-registro">
+      <p>
+        <span class="registro"> Registrar</span>
+        <span class="tipo" style="color:#6D24A6; height: 10px;"> {{tipo}}</span>
+      </p>
+      <div class="inputs">
+        <input class="Nombre" type="text" placeholder="Nombre" style="top: 10px;">
+        <input class="Apellidos" type="text" placeholder="Apellidos" style="top: 70px;">
+        <input class="Telefono" type="text" placeholder="Teléfono" style="top: 130px;">
+        <input class="DNI" type="text" placeholder="DNI" style="top: 190px;">
+        <input class="Motivo" type="text" placeholder="Motivo" style="top: 10px; left: 75%;">
+        <input class="N° Multa" type="text" placeholder="Importe" style="top: 70px; left: 75%;">
+        <div class="button-inputs">
+          <button type="button" class="button-buscar" style="background-color: #6D24A6;">Buscar Usuario</button>
+        </div>
+      </div>
+      <div class="buttons" style=" display: flex; justify-content: space-between;">
+        <button class="button-agregar">Agregar</button>
+        <button class="button-modificar" style="left: 185px">Modificar</button>
+        <button class="button-mostrar" style="left: 365px">Mostrar</button>
+        <button class="button-eliminar" style="left: 545px">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tipo === 'CATEGORIA'" class="registro-cuerpo" [style.background-color]="backgroundColor">
+    <div class="container-img">
+      <img alt={{nombreBiblioteca}} src={{urlImage}} width="360" height="90%">
+    </div>
+    <div class="container-registro">
+      <p>
+        <span class="registro"> Registrar</span>
+        <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
+      </p>
+      <div class="inputs">
+        <input class="Codigo" type="text" placeholder="Código" style="top: 10px;">
+        <input class="Descripcion" type="text" placeholder="Descripción" style="top: 70px;">
+        <input class="Telefono" type="text" placeholder="Teléfono" style="top: 130px;">
+        <input class="DNI" type="text" placeholder="DNI" style="top: 190px;">
+        <input class="Nacionalidad" type="text" placeholder="Nacionalidad" style="top: 250px;">
+      </div>
+      <div class="buttons" style=" display: flex; justify-content: space-between;">
+        <button class="button-agregar">Agregar</button>
+        <button class="button-modificar" style="left: 185px">Modificar</button>
+        <button class="button-mostrar" style="left: 365px">Mostrar</button>
+        <button class="button-eliminar" style="left: 545px">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tipo === 'LIBROS'" class="registro-cuerpo" [style.background-color]="backgroundColor">
+    <div class="container-img">
+      <img alt={{nombreBiblioteca}} src={{urlImage}} width="360" height="90%">
+    </div>
+    <div class="container-registro">
+      <p>
+        <span class="registro"> Registrar</span>
+        <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
       </p>
       <div class="inputs">
         <input class="Titulo" type="text" placeholder="Titulo" style="top: 10px;">
@@ -20,6 +191,172 @@
         <input class="Sinopsis" type="text" placeholder="Sinopsis" style="top: 250px; left: 75%;">
         <input class="N° Edicion" type="text" placeholder="N° Edición" style="top: 310px; left: 75%;">
         <input class="Ubicación" type="text" placeholder="Ubicación" style="top: 370px; left: 75%;">
+      </div>
+      <div class="combos">
+        <label class="Autor">Autor</label>
+        
+      </div>
+      <div class="buttons" style=" display: flex; justify-content: space-between;">
+        <button class="button-agregar">Agregar</button>
+        <button class="button-modificar" style="left: 185px">Modificar</button>
+        <button class="button-mostrar" style="left: 365px">Mostrar</button>
+        <button class="button-eliminar" style="left: 545px">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tipo === 'EDITORIAL'" class="registro-cuerpo" [style.background-color]="backgroundColor">
+    <div class="container-img">
+      <img alt={{nombreBiblioteca}} src={{urlImage}} width="360" height="90%">
+    </div>
+    <div class="container-registro">
+      <p>
+        <span class="registro"> Registrar</span>
+        <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
+      </p>
+      <div class="inputs">
+        <input class="Nombre" type="text" placeholder="Nombre" style="top: 10px;">
+        <input class="Titulo" type="text" placeholder="Título" style="top: 70px;">
+        <input class="Direccion" type="text" placeholder="Dirección" style="top: 130px;">
+      </div>
+      <div class="buttons" style=" display: flex; justify-content: space-between;">
+        <button class="button-agregar">Agregar</button>
+        <button class="button-modificar" style="left: 185px">Modificar</button>
+        <button class="button-mostrar" style="left: 365px">Mostrar</button>
+        <button class="button-eliminar" style="left: 545px">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tipo === 'EMPLEADOS'" class="registro-cuerpo" [style.background-color]="backgroundColor">
+    <div class="container-img">
+      <img alt={{nombreBiblioteca}} src={{urlImage}} width="360" height="90%">
+    </div>
+    <div class="container-registro">
+      <p>
+        <span class="registro"> Registrar</span>
+        <span class="tipo" style="color:#333FA6; height: 10px"> {{tipo}}</span>
+      </p>
+      <div class="inputs">
+        <input class="Nombre" type="text" placeholder="Nombre" style="top: 10px;">
+        <input class="Apellidos" type="text" placeholder="Apellidos" style="top: 70px;">
+        <input class="Telefono" type="text" placeholder="Teléfono" style="top: 130px;">
+        <input class="DNI" type="text" placeholder="DNI" style="top: 190px;">
+        <input class="Sueldo" type="text" placeholder="Sueldo" style="top: 10px; left: 75%;">
+        <input class="Horas_laborales" type="text" placeholder="Horas Laborables" style="top: 70px; left: 75%;">
+        <div class="combos">
+
+        </div>
+      </div>
+      <div class="buttons" style=" display: flex; justify-content: space-between;">
+        <button class="button-agregar">Agregar</button>
+        <button class="button-modificar" style="left: 185px">Modificar</button>
+        <button class="button-mostrar" style="left: 365px">Mostrar</button>
+        <button class="button-eliminar" style="left: 545px">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tipo === 'REVISTA'" class="registro-cuerpo" [style.background-color]="backgroundColor">
+    <div class="container-img">
+      <img alt={{nombreBiblioteca}} src={{urlImage}} width="360" height="90%">
+    </div>
+    <div class="container-registro">
+      <p>
+        <span class="registro"> Registrar</span>
+        <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
+      </p>
+      <div class="inputs">
+        <input class="Titulo" type="text" placeholder="Titulo" style="top: 10px;">
+        <input class="Disponibilidad" type="text" placeholder="Disponibilidad" style="top: 70px;">
+        <input class="Disciplina" type="text" placeholder="Disciplina" style="top: 130px;">
+        <input class="ISBN" type="text" placeholder="ISBN" style="top: 190px;">
+        <input class="Fecha de publicación" type="text" placeholder="Fecha de publicación" style="top: 250px;">
+        <input class="N° Páginas" type="text" placeholder="N° Páginas" style="top: 10px; left: 75%;">
+        <input class="N° Estante" type="text" placeholder="N° Estante" style="top: 70px; left: 75%;">
+        <input class="Bibliografía" type="text" placeholder="Bibliografía" style="top: 130px; left: 75%;">
+        <input class="Volumen" type="text" placeholder="Volúmen" style="top: 190px; left: 75%;">
+        <input class="Miembros_comite" type="text" placeholder="Miembros Comité" style="top: 250px; left: 75%;">
+        <input class="Indicador_cituacion" type="text" placeholder="Indicador Citación" style="top: 310px; left: 75%;">
+        <input class="Palabras_clave" type="text" placeholder="Palabras Clave" style="top: 370px; left: 75%;">
+      </div>
+      <div class="">
+
+      </div>
+      <div class="buttons" style=" display: flex; justify-content: space-between;">
+        <button class="button-agregar">Agregar</button>
+        <button class="button-modificar" style="left: 185px">Modificar</button>
+        <button class="button-mostrar" style="left: 365px">Mostrar</button>
+        <button class="button-eliminar" style="left: 545px">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="tipo === 'TESIS'" class="registro-cuerpo" [style.background-color]="backgroundColor">
+    <div class="container-img">
+      <img alt={{nombreBiblioteca}} src={{urlImage}} width="360" height="90%">
+    </div>
+    <div class="container-registro">
+      <p>
+        <span class="registro"> Registrar</span>
+        <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
+      </p>
+      <div class="inputs">
+        <input class="Titulo" type="text" placeholder="Titulo" style="top: 10px;">
+        <input class="Disponibilidad" type="text" placeholder="Disponibilidad" style="top: 70px;">
+        <input class="Disciplina" type="text" placeholder="Disciplina" style="top: 130px;">
+        <input class="Institucion" type="text" placeholder="Institución" style="top: 190px;">
+        <input class="Fecha de publicación" type="text" placeholder="Fecha de publicación" style="top: 250px;">
+        <input class="N° Paginas" type="text" placeholder="N° Páginas" style="top: 10px; left: 75%;">
+        <input class="N° Estante" type="text" placeholder="N° Estante" style="top: 70px; left: 75%;">
+        <input class="Bibliografía" type="text" placeholder="Bibliografía" style="top: 130px; left: 75%;">
+        <input class="Resumen" type="text" placeholder="Resumen" style="top: 190px; left: 75%;">
+        <input class="Palabras_clave" type="text" placeholder="Palabras Clave" style="top: 250px; left: 75%;">
+      </div>
+
+        <label class="Autores">AUTORES</label>
+        <div class="Autores" style="margin-bottom: 50px;">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown"
+            aria-expanded="false">-- seleccione --</a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="#">Registrar Libros</a></li>
+            <li><a class="dropdown-item" href="/registro-tesis">Registrar Tesis</a></li>
+            <li><a class="dropdown-item" href="/registro-articulos">Registrar Articulos</a></li>
+            <li><a class="dropdown-item" href="/registro-revista">Registrar Revistas</a></li>
+            <li><a class="dropdown-item" href="/registro-autor">Registrar Autor</a></li>
+            <li><a class="dropdown-item" href="/registro-categoria">Registrar Categoría</a></li>
+            <li><a class="dropdown-item" href="/registro-editorial">Registrar Editorial</a></li>
+          </ul>
+        </div>
+
+        <label class="Editorial">EDITORIAL</label>
+        <div class="Editorial" style="margin-bottom: 50px;">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown"
+            aria-expanded="false">-- seleccione --</a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="#">Registrar Libros</a></li>
+            <li><a class="dropdown-item" href="/registro-tesis">Registrar Tesis</a></li>
+            <li><a class="dropdown-item" href="/registro-articulos">Registrar Articulos</a></li>
+            <li><a class="dropdown-item" href="/registro-revista">Registrar Revistas</a></li>
+            <li><a class="dropdown-item" href="/registro-autor">Registrar Autor</a></li>
+            <li><a class="dropdown-item" href="/registro-categoria">Registrar Categoría</a></li>
+            <li><a class="dropdown-item" href="/registro-editorial">Registrar Editorial</a></li>
+          </ul>
+        </div>
+
+        <label class="Categoria-label">CATEGORIA</label>
+        <div class="Categoria" style="margin-bottom: 50px;">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown"
+            aria-expanded="false">-- seleccione --</a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="#">Registrar Libros</a></li>
+            <li><a class="dropdown-item" href="/registro-tesis">Registrar Tesis</a></li>
+            <li><a class="dropdown-item" href="/registro-articulos">Registrar Articulos</a></li>
+            <li><a class="dropdown-item" href="/registro-revista">Registrar Revistas</a></li>
+            <li><a class="dropdown-item" href="/registro-autor">Registrar Autor</a></li>
+            <li><a class="dropdown-item" href="/registro-categoria">Registrar Categoría</a></li>
+            <li><a class="dropdown-item" href="/registro-editorial">Registrar Editorial</a></li>
+          </ul>
       </div>
       <div class="buttons" style=" display: flex; justify-content: space-between;">
         <button class="button-agregar">Agregar</button>

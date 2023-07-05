@@ -9,6 +9,7 @@ export class RrevistaComponent {
   nombreBiblioteca = "Biblioteca Nacional del Perú";
   urlImg = "/assets/Fondo_Registros.png";
   tipo = "REVISTA";
+  background = "#F7EFE8";
   nombre = "Ivette"
   rol = "Recepcionista"
 }
