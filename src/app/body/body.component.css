@@ -125,3 +125,62 @@ p {
     top: 450px;
 
 }
+
+.Graficos-container {
+    position: absolute;
+    width: 95%;
+    height: 600px;
+    top: 430px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid #6F9A8D;
+    border-radius: 10px;
+}
+
+.CantidadPrestamo{
+    position: absolute;
+    padding: 2%;
+    width: 400px;
+    height: 400px;
+    left: 0;
+    border: 2px solid #6F9A8D;
+    border-top: 0;
+    border-left: 0;
+    border-bottom-right-radius: 5px;
+}
+
+.CantidadAutores{
+    position: absolute;
+    padding: 2%;
+    width: 400px;
+    height: 400px;
+    left: 399px;
+    border: 2px solid #6F9A8D;
+    border-top: 0;
+    border-left: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.CantidadRecaudado{
+    position: absolute;
+    padding: 2%;
+    width: 799px;
+    height: 200px;
+    top: 395px;
+    left: 0;
+    border: 2px solid #6F9A8D;
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 0;
+    border-bottom-right-radius: 5px;
+}
+
+.Prueba{
+    position: absolute;
+    padding: 2%;
+    width: 650px;
+    height: 600px;
+    top: 100px;
+    left: 1050px;
+}

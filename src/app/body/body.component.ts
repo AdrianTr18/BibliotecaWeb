@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Component, Input } from '@angular/core';
+import { ChartTypeRegistry } from 'chart.js';
 
 
 @Component({
@@ -13,4 +13,13 @@ export class BodyComponent{
   @Input() tipo: string | undefined;
   @Input() backgroundColor: string | undefined;
   @Input() nombre: string | undefined;
+
+  //Variables para el grafico
+  tipoGrafico : keyof ChartTypeRegistry = 'bar';
+  
+  setTipo(tipo: keyof ChartTypeRegistry ){
+    this.tipoGrafico = tipo;
+    return this.tipoGrafico;
+  }
+
 }

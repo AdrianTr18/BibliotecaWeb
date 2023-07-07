@@ -5,6 +5,24 @@
       <span class="nombre" style="color:#A67133; height: 10px;"> {{nombre}} !</span>
     </p>
   </div>
+  <div class="Graficos-container">
+    <div class="CantidadPrestamo">
+      <app-graficos [canvaName]=Prestamo.id [tipoGrafico]=tipoGrafico></app-graficos>
+      <canvas #Prestamo id="CantidadPrestamo" width="400" height="400"></canvas>
+    </div>
+    <div class="CantidadAutores">
+      <app-graficos [canvaName]=Autores.id [tipoGrafico]="setTipo('pie')"></app-graficos>
+      <canvas #Autores id="CantidadAutores" width="400" height="400"></canvas>
+    </div>
+    <div class="CantidadRecaudado">
+      <app-graficos [canvaName]=Recaudado.id [tipoGrafico]="setTipo('line')"></app-graficos>
+      <canvas #Recaudado id="CantidadRecaudado" width="200" height="200"></canvas>
+    </div>
+  </div>
+  <div class="Prueba">
+    <app-graficos [canvaName]=Prueba.id [tipoGrafico]="setTipo('doughnut')"></app-graficos>
+    <canvas #Prueba id="Prueba" width="400" height="400"></canvas>
+  </div>
 </div>
 
 <div *ngIf="tipo === 'PRESTAMO'" class="registro-cuerpo" [style.background-color]="backgroundColor">
