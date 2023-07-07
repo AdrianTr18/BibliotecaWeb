@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
 
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.css']
 })
-export class BodyComponent {
+export class BodyComponent{
   @Input() nombreBiblioteca: string | undefined;
   @Input() urlImage: string | undefined;
   @Input() tipo: string | undefined;

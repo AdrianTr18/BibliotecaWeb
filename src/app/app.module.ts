@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { Route, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { RlibroComponent } from './rlibro/rlibro.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -20,7 +21,7 @@ import { RprestamoComponent } from './rprestamo/rprestamo.component';
 import { RempleadosComponent } from './rempleados/rempleados.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
-import { NgChartsModule } from 'ng2-charts';
+import { GraficosComponent } from './graficos/graficos.component';
 
 const appRoutes: Routes=[
   { path: '', component: LoginComponent},
@@ -34,7 +35,8 @@ const appRoutes: Routes=[
   { path: 'registro-editorial', component: ReditorialComponent},
   { path: 'registro-multa', component: RmultaComponent},
   { path: 'registro-prestamo', component: RprestamoComponent},
-  { path: 'registro-empleados', component: RempleadosComponent}
+  { path: 'registro-empleados', component: RempleadosComponent},
+  { path: 'prueba-graficos', component: GraficosComponent}
 ];
 
 @NgModule({
@@ -54,7 +56,8 @@ const appRoutes: Routes=[
     RprestamoComponent,
     RempleadosComponent,
     HeaderComponent,
-    BodyComponent
+    BodyComponent,
+    GraficosComponent
   ],
   imports: [
     BrowserModule,
