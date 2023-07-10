@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChartTypeRegistry } from 'chart.js';
 
@@ -10,16 +10,6 @@ import { ChartTypeRegistry } from 'chart.js';
 })
 export class BodyComponent implements OnInit {
 
-
-
-  //Constructor para los servicios
-  constructor( 
-    ){}
-
-    ngOnInit(): void {
-
-    }
-
   // Variables para darle forma al cuerpo
   @Input() nombreBiblioteca: string | undefined;
   @Input() urlImage: string | undefined;
@@ -30,6 +20,24 @@ export class BodyComponent implements OnInit {
   @Input() autores: any | undefined;
   @Input() editoriales: any | undefined;
   @Input() categorias: any | undefined;
+  @Input() crearRevista: any | undefined;
+  @Input() revistaform!: FormGroup;
+  @Input() crearTesis: any | undefined;
+  @Input() tesisform!: FormGroup;
+  @Input() registrarEmpleado: any | undefined;
+  @Input() empleadoform!: FormGroup;
+  @Input() registrarEditorial: any | undefined;
+  @Input() editorialform!: FormGroup;
+  @Input() registrarAutor: any | undefined;
+  @Input() autorform!: FormGroup;
+  @Input() registrarCategoria: any | undefined;
+  @Input() categoriaform!: FormGroup;
+  @Input() subcategoriaLC: any | undefined;
+  @Input() registrarLibro: any | undefined;
+  @Input() libroform!: FormGroup;
+  @Input() registrarMulta: any | undefined;
+  @Input() multaform!: FormGroup;
+
 
 
   //Variables para el grafico
@@ -40,6 +48,25 @@ export class BodyComponent implements OnInit {
   colorsGrafico: string[] = [];
   borderColorGrafico: string[] = [];
   valuesGrafico: number[] = [];
+
+  //Constructor para los servicios
+  constructor(
+    private fb: FormBuilder,
+  ) { }
+
+  ngOnInit(): void {
+    //editorial
+    this.editorialform;
+
+    //empleado
+    this.empleadoform;
+
+    //revista
+    this.revistaform;
+
+    //tesis
+    this.tesisform;
+  }
 
   // Funciones para el grafico
   setTipo(tipo: keyof ChartTypeRegistry) {
