@@ -151,14 +151,6 @@
         <input class="DNI" type="text" formControlName="dni" placeholder="DNI" style="top: 190px;">
         <input class="Nacionalidad" type="text" formControlName="nacionalidad" placeholder="Nacionalidad" style="top: 250px;">
       </form>
-      <form class="Autor-form" [formGroup]="autorform" (ngSubmit)="registrarAutor">
-        <input class="Nombre" type="text" formControlName="nombre" placeholder="Nombre" style="top: 10px;">
-        <input class="Apellidos" type="text" formControlName="apellidos" placeholder="Apellidos" style="top: 70px;">
-        <input class="Telefono" type="text" formControlName="telefono" placeholder="Teléfono" style="top: 130px;">
-        <input class="DNI" type="text" formControlName="dni" placeholder="DNI" style="top: 190px;">
-        <input class="Nacionalidad" type="text" formControlName="nacionalidad" placeholder="Nacionalidad"
-          style="top: 250px;">
-      </form>
     </div>
     <div class="buttons" style=" display: flex; justify-content: space-between;">
       <button class="button-agregar">Agregar</button>
@@ -179,12 +171,14 @@
       <span class="tipo" style="color:#6D24A6; height: 10px;"> {{tipo}}</span>
     </p>
     <div class="inputs">
-      <input class="Nombre" type="text" placeholder="Nombre" style="top: 10px;">
-      <input class="Apellidos" type="text" placeholder="Apellidos" style="top: 70px;">
-      <input class="Telefono" type="text" placeholder="Teléfono" style="top: 130px;">
-      <input class="DNI" type="text" placeholder="DNI" style="top: 190px;">
-      <input class="Motivo" type="text" placeholder="Motivo" style="top: 10px; left: 75%;">
-      <input class="N° Multa" type="text" placeholder="Importe" style="top: 70px; left: 75%;">
+      <form class="Multa-form" [formGroup]="multaform" (ngSubmit)="registrarMulta">
+        <input class="Nombre" type="text" formControlName="nombre" placeholder="Nombre" style="top: 10px;">
+        <input class="Apellidos" type="text" formControlName="apellidos" placeholder="Apellidos" style="top: 70px;">
+        <input class="Telefono" type="text" formControlName="telefono" placeholder="Teléfono" style="top: 130px;">
+        <input class="DNI" type="text" formControlName="dni" placeholder="DNI" style="top: 190px;">
+        <input class="Motivo" type="text" formControlName="motivo" placeholder="Motivo" style="top: 10px; left: 75%;">
+        <input class="N° Multa" type="text" formControlName="nmulta" placeholder="Importe" style="top: 70px; left: 75%;">
+      </form>
       <div class="button-inputs">
         <button type="button" class="button-buscar" style="background-color: #6D24A6;">Buscar Usuario</button>
       </div>
@@ -208,24 +202,17 @@
       <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
     </p>
     <div class="inputs">
-      <form class="Categoria-form" [formGroup]="categoriaform" (ngSubmit)="registrarCategoria()">
-        <input class="Codigo" type="text" formControlName="codigo" placeholder="Código" style="top: 10px;">
-        <input class="Descripcion" type="text" formControlName="descripcion" placeholder="Descripción"
-          style="top: 70px;">
-        <div class="contenedorselect">
-          <label class="contenedorselect" name="subcategoria-label"
-            style="width: 200px; top:150px; left: 0; padding: 0;">SUB CATEGORIA LC</label>
-          <select name="subcategoria" id="subcategoria" formControlName="subCategoriaLC" style="top: 190px; left: 0;">
-            <option [ngValue]="item" *ngFor="let item of subcategoria">{{item.codigo}}</option>
-          </select>
-        </div>
-        <div class="buttons" style=" display: flex; justify-content: space-between;">
-          <button class="button-agregar" type="submit">Agregar</button>
-          <button class="button-modificar" style="left: 185px">Modificar</button>
-          <button class="button-mostrar" style="left: 365px">Mostrar</button>
-          <button class="button-eliminar" style="left: 545px">Eliminar</button>
-        </div>
-      </form>
+      <input class="Codigo" type="text" placeholder="Código" style="top: 10px;">
+      <input class="Descripcion" type="text" placeholder="Descripción" style="top: 70px;">
+      <input class="Telefono" type="text" placeholder="Teléfono" style="top: 130px;">
+      <input class="DNI" type="text" placeholder="DNI" style="top: 190px;">
+      <input class="Nacionalidad" type="text" placeholder="Nacionalidad" style="top: 250px;">
+    </div>
+    <div class="buttons" style=" display: flex; justify-content: space-between;">
+      <button class="button-agregar">Agregar</button>
+      <button class="button-modificar" style="left: 185px">Modificar</button>
+      <button class="button-mostrar" style="left: 365px">Mostrar</button>
+      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>
@@ -240,52 +227,44 @@
       <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
     </p>
     <div class="inputs">
-      <form class="libros-form" [formGroup]="libroform" (ngSubmit)="registrarLibro">
-        <input class="Titulo" type="text" formControlName="titulo" placeholder="Titulo" style="top: 10px;">
-        <input class="Disponibilidad" type="text" formControlName="disponibilidad" placeholder="Disponibilidad"
-          style="top: 70px;">
-        <input class="Disciplina" type="text" formControlName="disciplina" placeholder="Disciplina" style="top: 130px;">
-        <input class="ISBN" type="text" formControlName="isbn" placeholder="ISBN" style="top: 190px;">
-        <input class="Fecha de publicación" formControlName="fechapubli" type="text" placeholder="Fecha de publicación"
-          style="top: 250px;">
-        <input class="N° Páginas" type="text" formControlName="npaginas" placeholder="N° Páginas"
-          style="top: 10px; left: 75%;">
-        <input class="N° Estante" type="text" formControlName="nestante" placeholder="N° Estante"
-          style="top: 70px; left: 75%;">
-        <input class="Bibliografía" type="text" formControlName="bibliografia" placeholder="Bibliografía"
-          style="top: 130px; left: 75%;">
-        <input class="Género" type="text" formControlName="genero" placeholder="Género" style="top: 190px; left: 75%;">
-        <input class="Sinopsis" type="text" formControlName="sinopsis" placeholder="Sinopsis"
-          style="top: 250px; left: 75%;">
-        <input class="N° Edicion" type="text" formControlName="nedicion" placeholder="N° Edición"
-          style="top: 310px; left: 75%;">
-        <input class="Ubicación" type="text" formControlName="ubicacion" placeholder="Ubicación"
-          style="top: 370px; left: 75%;">
-        <div class="contenedorselect">
-          <label class="contenedorselect" name="autores-label">AUTORES</label>
-          <select name="autores" id="autores" formControlName="autores">
-            <option value="item.id" *ngFor="let item of autores">{{item.nombre}} {{item.apellidos}}</option>
-          </select>
-        </div>
-        <div class="contenedorselect">
-          <label class="contenedorselect" name="editorial-label">EDITORIAL</label>
-          <select name="editorial" id="editorial" formControlName="editorial">
-            <option value="item.id" *ngFor="let item of editoriales">{{item.nombre}}</option>
-          </select>
-        </div>
-        <div class="contenedorselect">
-          <label class="contenedorselect" name="categoria-label">CATEGORIA</label>
-          <select name="categoria" id="categoria" formControlName="categoria">
-            <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
-          </select>
-        </div>
-        <div class="buttons" style=" display: flex; justify-content: space-between;">
-          <button class="button-agregar">Agregar</button>
-          <button class="button-modificar" style="left: 185px">Modificar</button>
-          <button class="button-mostrar" style="left: 365px">Mostrar</button>
-          <button class="button-eliminar" style="left: 545px">Eliminar</button>
-        </div>
-      </form>
+      <input class="Titulo" type="text" placeholder="Titulo" style="top: 10px;">
+      <input class="Disponibilidad" type="text" placeholder="Disponibilidad" style="top: 70px;">
+      <input class="Disciplina" type="text" placeholder="Disciplina" style="top: 130px;">
+      <input class="ISBN" type="text" placeholder="ISBN" style="top: 190px;">
+      <input class="Fecha de publicación" type="text" placeholder="Fecha de publicación" style="top: 250px;">
+      <input class="N° Páginas" type="text" placeholder="N° Páginas" style="top: 10px; left: 75%;">
+      <input class="N° Estante" type="text" placeholder="N° Estante" style="top: 70px; left: 75%;">
+      <input class="Bibliografía" type="text" placeholder="Bibliografía" style="top: 130px; left: 75%;">
+      <input class="Género" type="text" placeholder="Género" style="top: 190px; left: 75%;">
+      <input class="Sinopsis" type="text" placeholder="Sinopsis" style="top: 250px; left: 75%;">
+      <input class="N° Edicion" type="text" placeholder="N° Edición" style="top: 310px; left: 75%;">
+      <input class="Ubicación" type="text" placeholder="Ubicación" style="top: 370px; left: 75%;">
+    </div>
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="autores-label">AUTORES</label>
+      <select name="autores" id="autores">
+        <option value="item.id" *ngFor="let item of autores">{{item.nombre}} {{item.apellidos}}</option>
+      </select>
+    </div>
+
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="editorial-label">EDITORIAL</label>
+      <select name="editorial" id="editorial">
+        <option value="item.id" *ngFor="let item of editoriales">{{item.nombre}}</option>
+      </select>
+    </div>
+
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="categoria-label">CATEGORIA</label>
+      <select name="categoria" id="categoria">
+        <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
+      </select>
+    </div>
+    <div class="buttons" style=" display: flex; justify-content: space-between;">
+      <button class="button-agregar">Agregar</button>
+      <button class="button-modificar" style="left: 185px">Modificar</button>
+      <button class="button-mostrar" style="left: 365px">Mostrar</button>
+      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>
@@ -300,17 +279,15 @@
       <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
     </p>
     <div class="inputs">
-      <form class="Editorial-form" [formGroup]="editorialform" (ngSubmit)="registrarEditorial">
-        <input class="Nombre" type="text" formControlName="nombre" placeholder="Nombre" style="top: 10px;">
-        <input class="Titulo" type="text" formControlName="titulo" placeholder="Título" style="top: 70px;">
-        <input class="Direccion" type="text" formControlName="direccion" placeholder="Dirección" style="top: 130px;">
-        <div class="buttons" style=" display: flex; justify-content: space-between;">
-          <button class="button-agregar">Agregar</button>
-          <button class="button-modificar" style="left: 185px">Modificar</button>
-          <button class="button-mostrar" style="left: 365px">Mostrar</button>
-          <button class="button-eliminar" style="left: 545px">Eliminar</button>
-        </div>
-      </form>
+      <input class="Nombre" type="text" placeholder="Nombre" style="top: 10px;">
+      <input class="Titulo" type="text" placeholder="Título" style="top: 70px;">
+      <input class="Direccion" type="text" placeholder="Dirección" style="top: 130px;">
+    </div>
+    <div class="buttons" style=" display: flex; justify-content: space-between;">
+      <button class="button-agregar">Agregar</button>
+      <button class="button-modificar" style="left: 185px">Modificar</button>
+      <button class="button-mostrar" style="left: 365px">Mostrar</button>
+      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>
@@ -325,21 +302,21 @@
       <span class="tipo" style="color:#333FA6; height: 10px"> {{tipo}}</span>
     </p>
     <div class="inputs">
-      <form class="Empleados-form" [formGroup]="empleadoform" (ngSubmit)="registrarEmpleado">
-        <input class="Nombre" type="text" formControlName="nombre" placeholder="Nombre" style="top: 10px;">
-        <input class="Apellidos" type="text" formControlName="apellidos" placeholder="Apellidos" style="top: 70px;">
-        <input class="Telefono" type="text" formControlName="telefono" placeholder="Teléfono" style="top: 130px;">
-        <input class="DNI" type="text" formControlName="dni" placeholder="DNI" style="top: 190px;">
-        <input class="Sueldo" type="text" formControlName="sueldo" placeholder="Sueldo" style="top: 10px; left: 75%;">
-        <input class="Horas_laborales" type="text" formControlName="horaslaborales" placeholder="Horas Laborables"
-          style="top: 70px; left: 75%;">
-          <div class="buttons" style=" display: flex; justify-content: space-between;">
-            <button class="button-agregar">Agregar</button>
-            <button class="button-modificar" style="left: 185px">Modificar</button>
-            <button class="button-mostrar" style="left: 365px">Mostrar</button>
-            <button class="button-eliminar" style="left: 545px">Eliminar</button>
-          </div>
-      </form>
+      <input class="Nombre" type="text" placeholder="Nombre" style="top: 10px;">
+      <input class="Apellidos" type="text" placeholder="Apellidos" style="top: 70px;">
+      <input class="Telefono" type="text" placeholder="Teléfono" style="top: 130px;">
+      <input class="DNI" type="text" placeholder="DNI" style="top: 190px;">
+      <input class="Sueldo" type="text" placeholder="Sueldo" style="top: 10px; left: 75%;">
+      <input class="Horas_laborales" type="text" placeholder="Horas Laborables" style="top: 70px; left: 75%;">
+      <div class="combos">
+
+      </div>
+    </div>
+    <div class="buttons" style=" display: flex; justify-content: space-between;">
+      <button class="button-agregar">Agregar</button>
+      <button class="button-modificar" style="left: 185px">Modificar</button>
+      <button class="button-mostrar" style="left: 365px">Mostrar</button>
+      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>
@@ -354,47 +331,37 @@
       <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
     </p>
     <div class="inputs">
-      <form class="Revista-form" [formGroup]="revistaform" (ngSubmit)="crearRevista">
-        <input class="Titulo" type="text" formControlName="titulo" placeholder="Titulo" style="top: 10px;">
-        <input class="Disponibilidad" type="text" formControlName="disponibilidad" placeholder="Disponibilidad"
-          style="top: 70px;">
-        <input class="Disciplina" type="text" formControlName="disciplina" placeholder="Disciplina" style="top: 130px;">
-        <input class="ISBN" type="text" formControlName="isbn" placeholder="ISBN" style="top: 190px;">
-        <input class="Fecha de publicación" type="text" formControlName="fechapubli" placeholder="Fecha de publicación"
-          style="top: 250px;">
-        <input class="N° Páginas" type="text" formControlName="npaginas" placeholder="N° Páginas"
-          style="top: 10px; left: 75%;">
-        <input class="N° Estante" type="text" formControlName="nestante" placeholder="N° Estante"
-          style="top: 70px; left: 75%;">
-        <input class="Bibliografía" type="text" formControlName="bibliografia" placeholder="Bibliografía"
-          style="top: 130px; left: 75%;">
-        <input class="Volumen" type="text" formControlName="volumen" placeholder="Volúmen"
-          style="top: 190px; left: 75%;">
-        <input class="Miembros_comite" type="text" formControlName="miembroscomite" placeholder="Miembros Comité"
-          style="top: 250px; left: 75%;">
-        <input class="Indicador_citacion" type="text" formControlName="indicador" placeholder="Indicador Citación"
-          style="top: 310px; left: 75%;">
-        <input class="Palabras_clave" type="text" formControlName="palabrasclave" placeholder="Palabras Clave"
-          style="top: 370px; left: 75%;">
-        <div class="contenedorselect">
-          <label class="contenedorselect" name="editorial-label">EDITORIAL</label>
-          <select name="editorial" id="editorial" formControlName="editorial">
-            <option value="item.id" *ngFor="let item of editoriales">{{item.nombre}}</option>
-          </select>
-        </div>
-        <div class="contenedorselect">
-          <label class="contenedorselect" name="categoria-label">CATEGORIA</label>
-          <select name="categoria" id="categoria" formControlName="categoria">
-            <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
-          </select>
-        </div>
-        <div class="buttons" style=" display: flex; justify-content: space-between;">
-          <button class="button-agregar">Agregar</button>
-          <button class="button-modificar" style="left: 185px">Modificar</button>
-          <button class="button-mostrar" style="left: 365px">Mostrar</button>
-          <button class="button-eliminar" style="left: 545px">Eliminar</button>
-        </div>
-      </form>
+      <input class="Titulo" type="text" placeholder="Titulo" style="top: 10px;">
+      <input class="Disponibilidad" type="text" placeholder="Disponibilidad" style="top: 70px;">
+      <input class="Disciplina" type="text" placeholder="Disciplina" style="top: 130px;">
+      <input class="ISBN" type="text" placeholder="ISBN" style="top: 190px;">
+      <input class="Fecha de publicación" type="text" placeholder="Fecha de publicación" style="top: 250px;">
+      <input class="N° Páginas" type="text" placeholder="N° Páginas" style="top: 10px; left: 75%;">
+      <input class="N° Estante" type="text" placeholder="N° Estante" style="top: 70px; left: 75%;">
+      <input class="Bibliografía" type="text" placeholder="Bibliografía" style="top: 130px; left: 75%;">
+      <input class="Volumen" type="text" placeholder="Volúmen" style="top: 190px; left: 75%;">
+      <input class="Miembros_comite" type="text" placeholder="Miembros Comité" style="top: 250px; left: 75%;">
+      <input class="Indicador_cituacion" type="text" placeholder="Indicador Citación" style="top: 310px; left: 75%;">
+      <input class="Palabras_clave" type="text" placeholder="Palabras Clave" style="top: 370px; left: 75%;">
+    </div>
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="editorial-label">EDITORIAL</label>
+      <select name="editorial" id="editorial">
+        <option value="item.id" *ngFor="let item of editoriales">{{item.nombre}}</option>
+      </select>
+    </div>
+
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="categoria-label">CATEGORIA</label>
+      <select name="categoria" id="categoria">
+        <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
+      </select>
+    </div>
+    <div class="buttons" style=" display: flex; justify-content: space-between;">
+      <button class="button-agregar">Agregar</button>
+      <button class="button-modificar" style="left: 185px">Modificar</button>
+      <button class="button-mostrar" style="left: 365px">Mostrar</button>
+      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>
@@ -409,50 +376,43 @@
       <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
     </p>
     <div class="inputs">
-      <form class="tesis-form" [formGroup]="tesisform" (ngSubmit)="crearTesis">
-        <input class="Titulo" type="text" formControlName="titulo" placeholder="Titulo" style="top: 10px;">
-        <input class="Disponibilidad" type="text" formControlName="disponibilidad" placeholder="Disponibilidad"
-          style="top: 70px;">
-        <input class="Disciplina" type="text" formControlName="disciplina" placeholder="Disciplina" style="top: 130px;">
-        <input class="Institucion" type="text" formControlName="institucion" placeholder="Institución"
-          style="top: 190px;">
-        <input class="Fecha de publicación" type="text" formControlName="fechapubli" placeholder="Fecha de publicación"
-          style="top: 250px;">
-        <input class="N° Páginas" type="text" formControlName="npaginas" placeholder="N° Páginas"
-          style="top: 10px; left: 75%;">
-        <input class="N° Estante" type="text" formControlName="nestante" placeholder="N° Estante"
-          style="top: 70px; left: 75%;">
-        <input class="Bibliografía" type="text" formControlName="bibliografia" placeholder="Bibliografía"
-          style="top: 130px; left: 75%;">
-        <input class="Resumen" type="text" formControlName="resumen" placeholder="Resumen"
-          style="top: 190px; left: 75%;">
-        <input class="Palabras_clave" type="text" formControlName="palabrasclave" placeholder="Palabras Clave"
-          style="top: 250px; left: 75%;">
-        <div class="contenedorselect">
-          <label class="contenedorselect" name="autores-label">ASESORES</label>
-          <select name="autores" id="autores" formControlName="asesores" style="width: 170px;">
-            <option value="item.id" *ngFor="let item of autores">{{item.nombre}} {{item.apellidos}}</option>
-          </select>
-        </div>
-        <div class="contenedorselect">
-          <label class="contenedorselect" name="editorial-label">EDITORIAL</label>
-          <select name="editorial" id="editorial" formControlName="editorial">
-            <option value="item.id" *ngFor="let item of editoriales">{{item.nombre}}</option>
-          </select>
-        </div>
-        <div class="contenedorselect">
-          <label class="contenedorselect" name="categoria-label">CATEGORIA</label>
-          <select name="categoria" id="categoria" formControlName="categoria">
-            <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
-          </select>
-        </div>
-        <div class="buttons" style=" display: flex; justify-content: space-between;">
-          <button class="button-agregar">Agregar</button>
-          <button class="button-modificar" style="left: 185px">Modificar</button>
-          <button class="button-mostrar" style="left: 365px">Mostrar</button>
-          <button class="button-eliminar" style="left: 545px">Eliminar</button>
-        </div>
-      </form>
+      <input class="Titulo" type="text" placeholder="Titulo" style="top: 10px;">
+      <input class="Disponibilidad" type="text" placeholder="Disponibilidad" style="top: 70px;">
+      <input class="Disciplina" type="text" placeholder="Disciplina" style="top: 130px;">
+      <input class="Institucion" type="text" placeholder="Institución" style="top: 190px;">
+      <input class="Fecha de publicación" type="text" placeholder="Fecha de publicación" style="top: 250px;">
+      <input class="N° Paginas" type="text" placeholder="N° Páginas" style="top: 10px; left: 75%;">
+      <input class="N° Estante" type="text" placeholder="N° Estante" style="top: 70px; left: 75%;">
+      <input class="Bibliografía" type="text" placeholder="Bibliografía" style="top: 130px; left: 75%;">
+      <input class="Resumen" type="text" placeholder="Resumen" style="top: 190px; left: 75%;">
+      <input class="Palabras_clave" type="text" placeholder="Palabras Clave" style="top: 250px; left: 75%;">
+    </div>
+
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="autores-label">ASESORES</label>
+      <select name="autores" id="autores" style="width: 170px;">
+        <option value="item.id" *ngFor="let item of autores">{{item.nombre}} {{item.apellidos}}</option>
+      </select>
+    </div>
+
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="editorial-label">EDITORIAL</label>
+      <select name="editorial" id="editorial">
+        <option value="item.id" *ngFor="let item of editoriales">{{item.nombre}}</option>
+      </select>
+    </div>
+
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="categoria-label">CATEGORIA</label>
+      <select name="categoria" id="categoria">
+        <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
+      </select>
+    </div>
+    <div class="buttons" style=" display: flex; justify-content: space-between;">
+      <button class="button-agregar">Agregar</button>
+      <button class="button-modificar" style="left: 185px">Modificar</button>
+      <button class="button-mostrar" style="left: 365px">Mostrar</button>
+      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>
