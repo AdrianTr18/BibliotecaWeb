@@ -17,4 +17,8 @@ export class CategoriaService {
   public getCategorias(): Observable<any>{
     return this.http.get(this.apiUrl);
   }
+
+  public addCategoria(categoria: any): Observable<any>{
+    return this.http.post(this.apiUrl, categoria);
+  }
 }

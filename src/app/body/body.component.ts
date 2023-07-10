@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChartTypeRegistry } from 'chart.js';
+import { SubcategoriaLCService } from '../services/subcategoriaLC/subcategoria-lc.service';
+import { CategoriaService } from '../services/categoria/categoria.service';
 
 
 @Component({
@@ -9,16 +11,6 @@ import { ChartTypeRegistry } from 'chart.js';
   styleUrls: ['./body.component.css']
 })
 export class BodyComponent implements OnInit {
-
-
-
-  //Constructor para los servicios
-  constructor( 
-    ){}
-
-    ngOnInit(): void {
-
-    }
 
   // Variables para darle forma al cuerpo
   @Input() nombreBiblioteca: string | undefined;
@@ -30,6 +22,23 @@ export class BodyComponent implements OnInit {
   @Input() autores: any | undefined;
   @Input() editoriales: any | undefined;
   @Input() categorias: any | undefined;
+  @Input() crearRevista: any | undefined;
+  @Input() revistaform!: FormGroup;
+  @Input() crearTesis: any | undefined;
+  @Input() tesisform!: FormGroup;
+  @Input() registrarEmpleado: any | undefined;
+  @Input() empleadoform!: FormGroup;
+  @Input() registrarEditorial: any | undefined;
+  @Input() editorialform!: FormGroup;
+  @Input() registrarAutor: any | undefined;
+  @Input() autorform!: FormGroup;
+  @Input() categoriaform!: FormGroup;
+  @Input() subcategoriaLC: any | undefined;
+  @Input() registrarLibro: any | undefined;
+  @Input() libroform!: FormGroup;
+  @Input() registrarMulta: any | undefined;
+  @Input() multaform!: FormGroup;
+
 
 
   //Variables para el grafico
@@ -40,6 +49,61 @@ export class BodyComponent implements OnInit {
   colorsGrafico: string[] = [];
   borderColorGrafico: string[] = [];
   valuesGrafico: number[] = [];
+
+  //Constructor para los servicios
+  constructor(
+    private categoriaService: CategoriaService,
+    private subcategoriaService: SubcategoriaLCService,
+    private fb: FormBuilder,
+  ) { }
+
+  ngOnInit(): void {
+    
+    //categoria
+    this.categoriaform = this.fb.group({
+      codigo: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      subCategoriaLC: ['', Validators.required]
+    });
+    //editorial
+    this.editorialform;
+    
+    //empleado
+    this.empleadoform;
+    
+    //revista
+    this.revistaform;
+    
+    //tesis
+    this.tesisform = this.fb.group({
+      titulo: ['', Validators.required],
+      disponibilidad: ['', Validators.required],
+      disciplina: ['', Validators.required],
+      institucion: ['', Validators.required],
+      fechapubli: ['', Validators.required],
+      npaginas: ['', Validators.required],
+      nestante: ['', Validators.required],
+      bibliografia: ['', Validators.required],
+      resumen: ['', Validators.required],
+      palabrasclave: ['', Validators.required],
+      asesores: ['', Validators.required],
+      editorial: ['', Validators.required],
+      categoria: ['', Validators.required]
+    });
+    //Funciones
+    this.subcategoriaService.getSubcategoria().subscribe(data => {
+      return this.subcategoriaLC = data;
+    });
+  }
+  
+  //Funciones para el CRUD
+  registrarCategoria(): void {
+    this.categoriaService.addCategoria(this.categoriaform.value).subscribe(resp => {
+      this.categoriaform.reset();
+    }, err => {
+      console.log(err);
+    });
+  }
 
   // Funciones para el grafico
   setTipo(tipo: keyof ChartTypeRegistry) {
