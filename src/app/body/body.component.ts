@@ -1,7 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChartTypeRegistry } from 'chart.js';
 import { SubcategoriaLCService } from '../services/subcategoriaLC/subcategoria-lc.service';
 import { CategoriaService } from '../services/categoria/categoria.service';
