@@ -22,6 +22,10 @@ import { RempleadosComponent } from './rempleados/rempleados.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { GraficosComponent } from './graficos/graficos.component';
+import { CuentasService } from './services/cuentas/cuentas.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes=[
   { path: '', component: LoginComponent},
@@ -36,7 +40,8 @@ const appRoutes: Routes=[
   { path: 'registro-multa', component: RmultaComponent},
   { path: 'registro-prestamo', component: RprestamoComponent},
   { path: 'registro-empleados', component: RempleadosComponent},
-  { path: 'prueba-graficos', component: GraficosComponent}
+  { path: 'prueba-graficos', component: GraficosComponent},
+  //{ path: '**', component: ErrorComponent},
 ];
 
 @NgModule({
@@ -64,9 +69,12 @@ const appRoutes: Routes=[
     FormsModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    NgChartsModule
+    NgChartsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CuentasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

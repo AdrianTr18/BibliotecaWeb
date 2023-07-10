@@ -1,27 +1,73 @@
 <div *ngIf="tipo === 'Inicio'" class="registro-cuerpo" [style.background-color]="backgroundColor">
   <div class="container-registro">
-    <p style="width: 370px;">
-      <span class="Bienvenida"> ¡ Bienvenido(a) </span>
+    <p style="width: auto;">
+      <span class="Bienvenida"> ¡ Estos datos son para tí </span>
       <span class="nombre" style="color:#A67133; height: 10px;"> {{nombre}} !</span>
     </p>
   </div>
-  <div class="Graficos-container">
+  <div *ngIf="rol === 'Recepcionista'" class="Graficos-container-Recepcion">
+    <div class="CantidadPrestamo-recep">
+      <!--Le damos valor a los inputs creados en la clase del componente con los valores creados en 
+          esta clase -->
+      <app-graficos [canvaName]=Prestamo.id [tipoGrafico]=tipoGrafico
+        [tituloGrafico]="setTitulo('Cantidad de prestamo por tipo')"
+        [labelsGrafico]="setLabels(['Tesis', 'Libros', 'Articulos', 'Revistas'])"
+        [leyendaGrafico]="setLeyenda('Cantidad')" [valuesGrafico]="setValues([12, 19, 3, 5])"
+        [coloresGrafico]="setColors(['rgba(255, 99, 132, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 205, 86, 0.2)','rgba(75, 192, 192, 0.2)'])"
+        [borderColorGrafico]="setBorderColor(['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)'])"></app-graficos>
+      <canvas #Prestamo id="CantidadPrestamo" width="400" height="400"></canvas>
+    </div>
+  </div>
+  <div *ngIf="rol === 'Administrador'" class="Graficos-container-Administracion">
+    <div class="CantidadRecaudado-admin">
+      <app-graficos [canvaName]=Recaudado.id [tipoGrafico]="setTipo('doughnut')"
+        [tituloGrafico]="setTitulo('Cantidad de recursos recaudados por mes')"
+        [labelsGrafico]="setLabels(['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio'])"
+        [leyendaGrafico]="setLeyenda('Cantidad')" [valuesGrafico]="setValues([120,180,270,105,250,100,85])"
+        [coloresGrafico]="setColors(['rgba(255, 99, 132, 0.4)','rgba(255, 159, 64, 0.4)','rgba(255, 205, 86, 0.4)','rgba(75, 192, 192, 0.4)','rgba(54, 162, 235, 0.4)','rgba(153, 102, 255, 0.4)','rgba(201, 203, 207, 0.4)'])"
+        [borderColorGrafico]="setBorderColor(['rgb(255, 99, 132)','rgb(255, 159, 64)','rgb(255, 205, 86)','rgb(75, 192, 192)','rgb(54, 162, 235)','rgb(153, 102, 255)','rgb(201, 203, 207)'])"></app-graficos>
+      <canvas #Recaudado id="CantidadRecaudado" width="400" height="400"></canvas>
+    </div>
+  </div>
+  <div *ngIf="rol === 'Director'" class="Graficos-container-Supervision">
     <div class="CantidadPrestamo">
-      <app-graficos [canvaName]=Prestamo.id [tipoGrafico]=tipoGrafico></app-graficos>
+      <!--Le damos valor a los inputs creados en la clase del componente con los valores creados en 
+          esta clase -->
+      <app-graficos [canvaName]=Prestamo.id [tipoGrafico]=tipoGrafico
+        [tituloGrafico]="setTitulo('Cantidad de prestamo por tipo')"
+        [labelsGrafico]="setLabels(['Tesis', 'Libros', 'Articulos', 'Revistas'])"
+        [leyendaGrafico]="setLeyenda('Cantidad')" [valuesGrafico]="setValues([12, 19, 3, 5])"
+        [coloresGrafico]="setColors(['rgba(255, 99, 132, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 205, 86, 0.2)','rgba(75, 192, 192, 0.2)'])"
+        [borderColorGrafico]="setBorderColor(['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)'])"></app-graficos>
       <canvas #Prestamo id="CantidadPrestamo" width="400" height="400"></canvas>
     </div>
     <div class="CantidadAutores">
-      <app-graficos [canvaName]=Autores.id [tipoGrafico]="setTipo('pie')"></app-graficos>
+      <app-graficos [canvaName]=Autores.id [tipoGrafico]="setTipo('pie')"
+        [tituloGrafico]="setTitulo('Cantidad de artículos disponibles por tipo')"
+        [labelsGrafico]="setLabels(['Tesis', 'Libros', 'Articulos', 'Revistas'])"
+        [leyendaGrafico]="setLeyenda('Cantidad')" [valuesGrafico]="setValues([12, 19, 3, 5])"
+        [coloresGrafico]="setColors(['rgba(255, 99, 132, 0.6)','rgba(255, 159, 64, 0.6)','rgba(255, 205, 86, 0.6)','rgba(75, 192, 192, 0.6)'])"
+        [borderColorGrafico]="setBorderColor(['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)'])"></app-graficos>
       <canvas #Autores id="CantidadAutores" width="400" height="400"></canvas>
     </div>
     <div class="CantidadRecaudado">
-      <app-graficos [canvaName]=Recaudado.id [tipoGrafico]="setTipo('line')"></app-graficos>
+      <app-graficos [canvaName]=Recaudado.id [tipoGrafico]="setTipo('line')"
+        [tituloGrafico]="setTitulo('Cantidad de fondos bibliográficos recaudados')"
+        [labelsGrafico]="setLabels(['Tesis', 'Libros', 'Articulos', 'Revistas'])"
+        [leyendaGrafico]="setLeyenda('Cantidad')" [valuesGrafico]="setValues([12, 19, 3, 5])"
+        [coloresGrafico]="setColors(['rgba(255, 205, 86, 0.6)','rgba(217, 32, 39, 0.6)'])"
+        [borderColorGrafico]="setBorderColor(['rgb(255, 205, 86)', 'rgb(217, 32, 39)'])"></app-graficos>
       <canvas #Recaudado id="CantidadRecaudado" width="200" height="200"></canvas>
     </div>
-  </div>
-  <div class="Prueba">
-    <app-graficos [canvaName]=Prueba.id [tipoGrafico]="setTipo('doughnut')"></app-graficos>
-    <canvas #Prueba id="Prueba" width="400" height="400"></canvas>
+    <div class="CantidadVisita">
+      <app-graficos [canvaName]=Visita.id [tipoGrafico]="setTipo('doughnut')"
+        [tituloGrafico]="setTitulo('Cantidad de visitantes por mes')"
+        [labelsGrafico]="setLabels(['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio'])"
+        [leyendaGrafico]="setLeyenda('Cantidad')" [valuesGrafico]="setValues([120,180,270,105,250,100,85])"
+        [coloresGrafico]="setColors(['rgba(255, 99, 132, 0.4)','rgba(255, 159, 64, 0.4)','rgba(255, 205, 86, 0.4)','rgba(75, 192, 192, 0.4)','rgba(54, 162, 235, 0.4)','rgba(153, 102, 255, 0.4)','rgba(201, 203, 207, 0.4)'])"
+        [borderColorGrafico]="setBorderColor(['rgb(255, 99, 132)','rgb(255, 159, 64)','rgb(255, 205, 86)','rgb(75, 192, 192)','rgb(54, 162, 235)','rgb(153, 102, 255)','rgb(201, 203, 207)'])"></app-graficos>
+      <canvas #Visita id="CantidadVisita" width="400" height="400"></canvas>
+    </div>
   </div>
 </div>
 
@@ -190,9 +236,25 @@
       <input class="N° Edicion" type="text" placeholder="N° Edición" style="top: 310px; left: 75%;">
       <input class="Ubicación" type="text" placeholder="Ubicación" style="top: 370px; left: 75%;">
     </div>
-    <div class="combos">
-      <label class="Autor">Autor</label>
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="autores-label">AUTORES</label>
+      <select name="autores" id="autores">
+        <option value="item.id" *ngFor="let item of autores">{{item.nombre}} {{item.apellidos}}</option>
+      </select>
+    </div>
 
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="editorial-label">EDITORIAL</label>
+      <select name="editorial" id="editorial">
+        <option value="item.id" *ngFor="let item of editoriales">{{item.nombre}}</option>
+      </select>
+    </div>
+
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="categoria-label">CATEGORIA</label>
+      <select name="categoria" id="categoria">
+        <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
+      </select>
     </div>
     <div class="buttons" style=" display: flex; justify-content: space-between;">
       <button class="button-agregar">Agregar</button>
@@ -278,8 +340,18 @@
       <input class="Indicador_cituacion" type="text" placeholder="Indicador Citación" style="top: 310px; left: 75%;">
       <input class="Palabras_clave" type="text" placeholder="Palabras Clave" style="top: 370px; left: 75%;">
     </div>
-    <div class="">
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="editorial-label">EDITORIAL</label>
+      <select name="editorial" id="editorial">
+        <option value="item.id" *ngFor="let item of editoriales">{{item.nombre}}</option>
+      </select>
+    </div>
 
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="categoria-label">CATEGORIA</label>
+      <select name="categoria" id="categoria">
+        <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
+      </select>
     </div>
     <div class="buttons" style=" display: flex; justify-content: space-between;">
       <button class="button-agregar">Agregar</button>
@@ -312,49 +384,25 @@
       <input class="Palabras_clave" type="text" placeholder="Palabras Clave" style="top: 250px; left: 75%;">
     </div>
 
-    <label class="Autores">AUTORES</label>
-    <div class="Autores" style="margin-bottom: 50px;">
-      <a href="#" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown"
-        aria-expanded="false">-- seleccione --</a>
-      <ul class="dropdown-menu text-small">
-        <li><a class="dropdown-item" href="#">Registrar Libros</a></li>
-        <li><a class="dropdown-item" href="/registro-tesis">Registrar Tesis</a></li>
-        <li><a class="dropdown-item" href="/registro-articulos">Registrar Articulos</a></li>
-        <li><a class="dropdown-item" href="/registro-revista">Registrar Revistas</a></li>
-        <li><a class="dropdown-item" href="/registro-autor">Registrar Autor</a></li>
-        <li><a class="dropdown-item" href="/registro-categoria">Registrar Categoría</a></li>
-        <li><a class="dropdown-item" href="/registro-editorial">Registrar Editorial</a></li>
-      </ul>
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="autores-label">ASESORES</label>
+      <select name="autores" id="autores" style="width: 170px;">
+        <option value="item.id" *ngFor="let item of autores">{{item.nombre}} {{item.apellidos}}</option>
+      </select>
     </div>
 
-    <label class="Editorial">EDITORIAL</label>
-    <div class="Editorial" style="margin-bottom: 50px;">
-      <a href="#" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown"
-        aria-expanded="false">-- seleccione --</a>
-      <ul class="dropdown-menu text-small">
-        <li><a class="dropdown-item" href="#">Registrar Libros</a></li>
-        <li><a class="dropdown-item" href="/registro-tesis">Registrar Tesis</a></li>
-        <li><a class="dropdown-item" href="/registro-articulos">Registrar Articulos</a></li>
-        <li><a class="dropdown-item" href="/registro-revista">Registrar Revistas</a></li>
-        <li><a class="dropdown-item" href="/registro-autor">Registrar Autor</a></li>
-        <li><a class="dropdown-item" href="/registro-categoria">Registrar Categoría</a></li>
-        <li><a class="dropdown-item" href="/registro-editorial">Registrar Editorial</a></li>
-      </ul>
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="editorial-label">EDITORIAL</label>
+      <select name="editorial" id="editorial">
+        <option value="item.id" *ngFor="let item of editoriales">{{item.nombre}}</option>
+      </select>
     </div>
 
-    <label class="Categoria-label">CATEGORIA</label>
-    <div class="Categoria" style="margin-bottom: 50px;">
-      <a href="#" class="d-block link-body-emphasis text-decoration-none" data-bs-toggle="dropdown"
-        aria-expanded="false">-- seleccione --</a>
-      <ul class="dropdown-menu text-small">
-        <li><a class="dropdown-item" href="#">Registrar Libros</a></li>
-        <li><a class="dropdown-item" href="/registro-tesis">Registrar Tesis</a></li>
-        <li><a class="dropdown-item" href="/registro-articulos">Registrar Articulos</a></li>
-        <li><a class="dropdown-item" href="/registro-revista">Registrar Revistas</a></li>
-        <li><a class="dropdown-item" href="/registro-autor">Registrar Autor</a></li>
-        <li><a class="dropdown-item" href="/registro-categoria">Registrar Categoría</a></li>
-        <li><a class="dropdown-item" href="/registro-editorial">Registrar Editorial</a></li>
-      </ul>
+    <div class="contenedorselect">
+      <label class="contenedorselect" name="categoria-label">CATEGORIA</label>
+      <select name="categoria" id="categoria">
+        <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
+      </select>
     </div>
     <div class="buttons" style=" display: flex; justify-content: space-between;">
       <button class="button-agregar">Agregar</button>

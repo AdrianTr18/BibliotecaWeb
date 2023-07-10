@@ -11,6 +11,12 @@ export class InicioComponent{
   imgUrl = "";
   backgroundColor = "#FFFFFF";
   nombre = "Ivette";
-  rol = "Amo y señor de todo";
+  rol: string = "";
   tipo = "Inicio";
+
+  //Funciones para config
+  setRol(rol: string){
+    this.rol = rol;
+    return this.rol;
+  }
 }

@@ -1,8 +1,8 @@
 <!-- Header -->
-<app-header [nombre]=nombre [rol] = rol ></app-header>
+<app-header [nombre]=nombre [rol]="setRol('Director')" ></app-header>
 <!-- Body -->
 <app-body 
-    [nombreBiblioteca]=nombreBiblioteca [backgroundColor]=backgroundColor [urlImage]=imgUrl [tipo]=tipo [nombre]=nombre>
+    [nombreBiblioteca]=nombreBiblioteca [backgroundColor]=backgroundColor [urlImage]=imgUrl [tipo]=tipo [nombre]=nombre [rol]="setRol('Director')">
 </app-body>
 <!-- Footer -->
 <app-footer></app-footer>
