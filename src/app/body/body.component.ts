@@ -32,14 +32,14 @@ export class BodyComponent implements OnInit {
   @Input() editorialform!: FormGroup;
   @Input() registrarAutor: any | undefined;
   @Input() autorform!: FormGroup;
-  @Input() categoriaform!: FormGroup;
-  @Input() subcategoriaLC: any | undefined;
   @Input() registrarLibro: any | undefined;
   @Input() libroform!: FormGroup;
   @Input() registrarMulta: any | undefined;
   @Input() multaform!: FormGroup;
-
-
+  
+  
+  categoriaform!: FormGroup;
+  subcategoria: any | undefined;
 
   //Variables para el grafico
   tipoGrafico: keyof ChartTypeRegistry = 'bar';
@@ -92,7 +92,7 @@ export class BodyComponent implements OnInit {
     });
     //Funciones
     this.subcategoriaService.getSubcategoria().subscribe(data => {
-      return this.subcategoriaLC = data;
+      return this.subcategoria = data;
     });
   }
   

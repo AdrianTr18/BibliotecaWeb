@@ -208,17 +208,24 @@
       <span class="tipo" style="color:#A67133; height: 10px"> {{tipo}}</span>
     </p>
     <div class="inputs">
-      <input class="Codigo" type="text" placeholder="Código" style="top: 10px;">
-      <input class="Descripcion" type="text" placeholder="Descripción" style="top: 70px;">
-      <input class="Telefono" type="text" placeholder="Teléfono" style="top: 130px;">
-      <input class="DNI" type="text" placeholder="DNI" style="top: 190px;">
-      <input class="Nacionalidad" type="text" placeholder="Nacionalidad" style="top: 250px;">
-    </div>
-    <div class="buttons" style=" display: flex; justify-content: space-between;">
-      <button class="button-agregar">Agregar</button>
-      <button class="button-modificar" style="left: 185px">Modificar</button>
-      <button class="button-mostrar" style="left: 365px">Mostrar</button>
-      <button class="button-eliminar" style="left: 545px">Eliminar</button>
+      <form class="Categoria-form" [formGroup]="categoriaform" (ngSubmit)="registrarCategoria()">
+        <input class="Codigo" type="text" formControlName="codigo" placeholder="Código" style="top: 10px;">
+        <input class="Descripcion" type="text" formControlName="descripcion" placeholder="Descripción"
+          style="top: 70px;">
+        <div class="contenedorselect">
+          <label class="contenedorselect" name="subcategoria-label"
+            style="width: 200px; top:150px; left: 0; padding: 0;">SUB CATEGORIA LC</label>
+          <select name="subcategoria" id="subcategoria" formControlName="subCategoriaLC" style="top: 190px; left: 0;">
+            <option [ngValue]="item" *ngFor="let item of subcategoria">{{item.codigo}}</option>
+          </select>
+        </div>
+        <div class="buttons" style=" display: flex; justify-content: space-between;">
+          <button class="button-agregar" type="submit">Agregar</button>
+          <button class="button-modificar" style="left: 185px">Modificar</button>
+          <button class="button-mostrar" style="left: 365px">Mostrar</button>
+          <button class="button-eliminar" style="left: 545px">Eliminar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -272,13 +279,13 @@
             <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
           </select>
         </div>
+        <div class="buttons" style=" display: flex; justify-content: space-between;">
+          <button class="button-agregar">Agregar</button>
+          <button class="button-modificar" style="left: 185px">Modificar</button>
+          <button class="button-mostrar" style="left: 365px">Mostrar</button>
+          <button class="button-eliminar" style="left: 545px">Eliminar</button>
+        </div>
       </form>
-    </div>
-    <div class="buttons" style=" display: flex; justify-content: space-between;">
-      <button class="button-agregar">Agregar</button>
-      <button class="button-modificar" style="left: 185px">Modificar</button>
-      <button class="button-mostrar" style="left: 365px">Mostrar</button>
-      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>
@@ -297,13 +304,13 @@
         <input class="Nombre" type="text" formControlName="nombre" placeholder="Nombre" style="top: 10px;">
         <input class="Titulo" type="text" formControlName="titulo" placeholder="Título" style="top: 70px;">
         <input class="Direccion" type="text" formControlName="direccion" placeholder="Dirección" style="top: 130px;">
+        <div class="buttons" style=" display: flex; justify-content: space-between;">
+          <button class="button-agregar">Agregar</button>
+          <button class="button-modificar" style="left: 185px">Modificar</button>
+          <button class="button-mostrar" style="left: 365px">Mostrar</button>
+          <button class="button-eliminar" style="left: 545px">Eliminar</button>
+        </div>
       </form>
-    </div>
-    <div class="buttons" style=" display: flex; justify-content: space-between;">
-      <button class="button-agregar">Agregar</button>
-      <button class="button-modificar" style="left: 185px">Modificar</button>
-      <button class="button-mostrar" style="left: 365px">Mostrar</button>
-      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>
@@ -326,13 +333,13 @@
         <input class="Sueldo" type="text" formControlName="sueldo" placeholder="Sueldo" style="top: 10px; left: 75%;">
         <input class="Horas_laborales" type="text" formControlName="horaslaborales" placeholder="Horas Laborables"
           style="top: 70px; left: 75%;">
+          <div class="buttons" style=" display: flex; justify-content: space-between;">
+            <button class="button-agregar">Agregar</button>
+            <button class="button-modificar" style="left: 185px">Modificar</button>
+            <button class="button-mostrar" style="left: 365px">Mostrar</button>
+            <button class="button-eliminar" style="left: 545px">Eliminar</button>
+          </div>
       </form>
-    </div>
-    <div class="buttons" style=" display: flex; justify-content: space-between;">
-      <button class="button-agregar">Agregar</button>
-      <button class="button-modificar" style="left: 185px">Modificar</button>
-      <button class="button-mostrar" style="left: 365px">Mostrar</button>
-      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>
@@ -381,13 +388,13 @@
             <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
           </select>
         </div>
+        <div class="buttons" style=" display: flex; justify-content: space-between;">
+          <button class="button-agregar">Agregar</button>
+          <button class="button-modificar" style="left: 185px">Modificar</button>
+          <button class="button-mostrar" style="left: 365px">Mostrar</button>
+          <button class="button-eliminar" style="left: 545px">Eliminar</button>
+        </div>
       </form>
-    </div>
-    <div class="buttons" style=" display: flex; justify-content: space-between;">
-      <button class="button-agregar">Agregar</button>
-      <button class="button-modificar" style="left: 185px">Modificar</button>
-      <button class="button-mostrar" style="left: 365px">Mostrar</button>
-      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>
@@ -439,13 +446,13 @@
             <option value="item.id" *ngFor="let item of categorias">{{item.codigo}}</option>
           </select>
         </div>
+        <div class="buttons" style=" display: flex; justify-content: space-between;">
+          <button class="button-agregar">Agregar</button>
+          <button class="button-modificar" style="left: 185px">Modificar</button>
+          <button class="button-mostrar" style="left: 365px">Mostrar</button>
+          <button class="button-eliminar" style="left: 545px">Eliminar</button>
+        </div>
       </form>
-    </div>
-    <div class="buttons" style=" display: flex; justify-content: space-between;">
-      <button class="button-agregar">Agregar</button>
-      <button class="button-modificar" style="left: 185px">Modificar</button>
-      <button class="button-mostrar" style="left: 365px">Mostrar</button>
-      <button class="button-eliminar" style="left: 545px">Eliminar</button>
     </div>
   </div>
 </div>

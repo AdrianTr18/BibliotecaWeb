@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubcategoriaLCService } from '../services/subcategoriaLC/subcategoria-lc.service';
+import { CategoriaService } from '../services/categoria/categoria.service';
 
 @Component({
   selector: 'app-rcategoria',
@@ -14,38 +15,23 @@ export class RcategoriaComponent implements OnInit {
   background = "#F7EFE8"
   nombre = "Ivette"
   rol = "Recepcionista"
-  categoriaform!: FormGroup;
-  subcategoria: any;
+  
 
   constructor(
-    private fb: FormBuilder,
+    private categoriaService: CategoriaService,
     private subcategoriaService: SubcategoriaLCService
     ) { }
 
     ngOnInit(): void {
-        this.categoriaform = this.fb.group({
-          codigo: [[''],[Validators.required]],
-          descripcion: [[''],[Validators.required]],
-          telefono: [[''],[Validators.required]],
-          dni: [[''],[Validators.required]],
-          nacionalidad: [[''],[Validators.required]]
-        });
-
-        //Inyeccion de servicios
-        this.subcategoriaService.getSubcategoriaLCs().subscribe( data => {
-          return this.subcategoria = data;
-        },
-        error => {
-          console.log(error);
-        });
+        
     }
 
-    registrarCategoria(): void{
-      this.subcategoriaService.addSubcategoriaLC(this.categoriaform.value).subscribe( data => {
-      },
-      error => {
-        console.log(error);
-      });
-    }
+    // registrarCategoria(): void{
+    //   this.categoriaService.addCategoria(this.categoriaform.value).subscribe( values => {
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   });
+    // }
 
 }
